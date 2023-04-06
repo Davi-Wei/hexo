@@ -1,0 +1,29 @@
+# serverless.yml
+
+
+component: website
+name: myWebsite
+app: websiteApp
+stage: dev
+
+
+inputs:
+   src:
+     src: ./public
+     index: index.html
+     error: index.html
+   region: ap-guangzhou
+   bucketName: my-hexo-bucket
+   protocol: https
+   # 新增的 CDN 自定义域名配置
+   hosts:
+     - host: www.weizhengda.com # 希望配置的自定义域名
+       https:
+         switch: on
+         http2: off
+         certInfo:
+           certId: '42zlrTpZ'
+           # certificate: 'xxx'
+           # privateKey: 'xxx'
+
+
